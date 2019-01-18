@@ -31,8 +31,13 @@ export class AuthService {
   createOrUpdate(credentials) {
     return this.http.post(this.url + '/user/create', credentials);
   }
+
+
   logout() {
-    return this.http.delete(this.url + '/user/logout/' + this.currentUser.userId)
+    console.log(this.currentUser)
+    const path = 'http://localhost:3000/api/user/logout/' + this.currentUser.userId;
+    console.log('path: ', path)
+    return this.http.delete(path)
       .pipe(
         map(() => {
           localStorage.removeItem('token');

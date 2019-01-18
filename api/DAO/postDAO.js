@@ -7,10 +7,10 @@ import applicationException from "../service/applicationException";
 
 const postSchema = new mongoose.Schema({
   title: {type: String},
-  stan: {type: String},
-  brygada: {type: String},
-  liczebnosc: {type: String},
-  content: {type: String},
+  imie: {type: String},
+  nazwisko: {type: String},
+  login: {type: String},
+  password: {type: String},
 }, {
   collection: 'post'
 });

@@ -9,8 +9,9 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/home">Strona główna </a>
         <a class="nav-item nav-link" routerLink="/forum">Forum </a>
-        <a class="nav-item nav-link" routerLink="/settings">Ustawienia </a>
+        <a *ngIf="authService.isLoggedIn()" class="nav-item nav-link" routerLink="/settings">Ustawienia </a>
         <a class="nav-item nav-link" routerLink="/registration">Rejestracja </a>
+        <a *ngIf="authService.isLoggedIn()" class="nav-item nav-link" (click)="logout()">Wyloguj </a>
       </div>
     </div>
 

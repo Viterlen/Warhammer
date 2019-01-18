@@ -22,6 +22,7 @@ const userEndpoint = (router) => {
   });
 
   router.delete('/api/user/logout/:userId', async (request, response, next) => {
+    console.log('weszlo: ', request.params.userId)
     try {
       let result = await business(request).getUserManager(request).removeHashSession(request.body.userId);
       response.status(200).send(result);
