@@ -9,7 +9,10 @@ import { ForumComponent } from './components/forum/forum.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AuthService} from './services/auth.service';
+import {AuthInterceptor} from './services/auth/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +25,20 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    [AuthService],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

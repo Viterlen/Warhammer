@@ -1,9 +1,17 @@
-<div class="container-fluid">
-  <div class="hide-md-lg">
-    <p>Login</p>
-  </div>
+<br>
+<div class="form-group">
+  <form action="post" autocomplete="off" method="POST">
+    <div class="input-group">
+      <input [(ngModel)]="credentials.login" type="text" class="form-control"
+             name="username" placeholder="Nazwa" title="Wprowadź login">
+    </div>
 
-  <input type="text" name="username" placeholder="Username" required>
-  <input type="password" name="password" placeholder="Password" required>
-  <input type="submit" value="Login">
-</div>
+    <div class="input-group">
+      <input [(ngModel)]="credentials.password" type="password" class="form-control"
+             name="password" placeholder="Hasło" title="Wprowadź hasło">
+    </div>
+    <br>
+    <button (click)="signIn()" class="btn btn-lg btn-pink btn-block" type="submit" title="Przycisk zaloguj">
+      Zaloguj
+    </button>
+  </form></div>
