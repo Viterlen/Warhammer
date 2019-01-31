@@ -10,6 +10,7 @@
         <a class="nav-item nav-link" routerLink="/home">Strona główna </a>
         <a class="nav-item nav-link" routerLink="/forum">Forum </a>
         <a *ngIf="authService.isLoggedIn()" class="nav-item nav-link" routerLink="/settings">Ustawienia </a>
+        <a *ngIf="authService.isLoggedIn()" class="nav-item nav-link" routerLink="/create-post">Napisz post</a>
         <a class="nav-item nav-link" routerLink="/registration">Rejestracja </a>
         <a *ngIf="authService.isLoggedIn()" class="nav-item nav-link" (click)="logout()">Wyloguj </a>
       </div>

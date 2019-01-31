@@ -5,6 +5,8 @@ import {HomeComponent} from './components/home/home.component';
 import {ForumComponent} from './components/forum/forum.component';
 import {SettingsComponent} from './components/settings/settings.component';
 import {RegistrationComponent} from './components/registration/registration.component';
+import {BlogItemDetailComponent} from './components/blog-item-detail/blog-item-detail.component';
+import {BlogCreateComponent} from './components/blog-create/blog-create.component';
 
 const routes: Routes = [
   {
@@ -26,8 +28,15 @@ const routes: Routes = [
   {
     path: 'registration',
     component: RegistrationComponent,
-  }
-];
+  },
+  {
+    path: 'blog/details/:id',
+    component: BlogItemDetailComponent,
+  },
+  {
+    path: 'create-post',
+    component: BlogCreateComponent,
+  }];
 
 @NgModule({
   imports: [

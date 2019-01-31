@@ -7,26 +7,22 @@ import {map} from 'rxjs/operators';
 })
 export class DataServiceService {
 
-  private url = 'http://localhost:3000';
 
-  constructor(private http: HttpClient) {
-
+  http: HttpClient;
+  host: string;
+  constructor(httpClient: HttpClient) {
+    this.http = httpClient;
+    this.host = 'http://localhost:3000';
   }
 
-  get(id) {
-    return this.http.get(this.url + '/api/post/' + id)
-      .pipe();
+  public getAll(): any {
+    return this.http.get(this.host + '/api/posts');
   }
-
-  getAll() {
-    return this.http.get(this.url + '/api/posts')
-      .pipe(
-        map((x: any[]) => x)
-      );
+  public getOne(id): any {
+    return this.http.get(this.host + '/api/posts' + id);
   }
-
-  addPost(data) {
-    return this.http.post(this.url + '/api/post/',  data).pipe();
+  public savePost(body): any {
+    return this.http.post(this.host + '/api/posts', body);
   }
 
 
